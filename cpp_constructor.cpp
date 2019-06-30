@@ -29,8 +29,8 @@ int main()
 	PrintAndDouble(b); // copy constructor
 	Sample c = 20; // constructor
 	PrintAndDouble(c);
-	Sample d;
-	d = a;
+	Sample d; //constructor
+	d = a; //operator =
 	cout << d.v << endl;
 
 	return 0;
