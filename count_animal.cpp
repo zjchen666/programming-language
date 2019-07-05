@@ -6,7 +6,7 @@ class Animal {
 	Animal() {
 		number++;
 	}
-	virtual ~Animal() {
+	virtual ~Animal() // for c2 del {
 		number--;
 	}
 };
