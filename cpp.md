@@ -6,6 +6,7 @@ to avoid obj as parameter(copy constructor costs memory and time)
 多个函数，函数名相同，但是参数的个数和类型不同。
 
 ## 类和对象
+
 ### 构造函数
    1. 定义一个对象时先调用基类的构造函数、然后调用派生类的构造函数；析构的时候恰好相反：先调用派生类的析构函数、然后调用基类的析构函数。
    2. 一个类可以有多个构造函数。参数个数和参数类型不同。
@@ -31,11 +32,24 @@ to avoid obj as parameter(copy constructor costs memory and time)
 1.在定义类的时候。在类内部定义的成员函数默认是inline的   
 2.在类的内部之声明函数， 在函数外以 类名：：函数名 的形式定义。  
 
+## 继承与派生
+```cpp
+   class derived: public base {
+   ...
+   };
+```
+
 ### 类成员变量
-默认是private
+private(default): 只能自己调用。
+public: 都可以调用。
+protected: 自己和派生类调用。
 
 ## 虚函数
-
+ 1. 基类指针指向派生类的对象。
+ 2. 基类的引用指向派生类的对象。
+ 3. 基类指针指向谁就调用谁的虚函数。
+ 
+ 
 ## [C++ STL](#stl)
 [Misc](#misc)  
     - [lambda](#lambda)  
