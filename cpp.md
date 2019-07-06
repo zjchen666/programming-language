@@ -33,10 +33,18 @@ to avoid obj as parameter(copy constructor costs memory and time)
 2.在类的内部之声明函数， 在函数外以 类名：：函数名 的形式定义。  
 
 ## 继承与派生
+  1. 子类的构造函数要给调用基类的构造函数
 ```cpp
-   class derived: public base {
-   ...
-   };
+   class Derived:public Base
+   {
+       public:
+            Derived(int i):Base(i) {
+                cout << "Derived constructed" << endl;
+            }
+            ~Derived() {
+            cout << "Derived destructed" << endl;
+            }
+};
 ```
 
 ### 类成员变量
