@@ -17,7 +17,7 @@ public:
         cout << "copy constructor" << v << endl;
     }
 };
-void PrintAndDouble(Sample o)
+void PrintAndDouble(Sample o) // 如果参数为引用，则减少一次拷贝构造函数的调用
 {
 	cout << o.v;
 	cout << endl;
