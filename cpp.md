@@ -34,6 +34,7 @@ to avoid obj as parameter(copy constructor costs memory and time)
 ### 类成员变量
 默认是private
 
+## 虚函数
 
 ## [C++ STL](#stl)
 [Misc](#misc)  
@@ -48,54 +49,7 @@ to avoid obj as parameter(copy constructor costs memory and time)
 [map](#map)  
 [sort](#sort)
 
-## [C++ Class](#class)
-## virtual function
-```cpp
-#include <iostream>
-#include <queue>
-
-using namespace std;
-
-class A {
-public: 
-	virtual void foo()
-	{
-		printf("A\n");
-	}
-};
-
-
-class B : public A {
-public: 
-	void foo()
-	{
-		printf("B\n");
-	}
-};
-
-
-class C : public B {
-public: 
-	void foo()
-	{
-		printf("C\n");
-	}
-};
-
-int main()
-{
-   C  c;
-	B  b;
-	//A  a;
-	A* a = &c;
-	a->foo(); // c print instance function
-	//a.foo();
-   //printf("%d\n");	
-   return 0;
-}
-```
-
-## stl
+## STL
 | vector        | string      | deque         | stack | queue      | priority_queue | unordered_set | unordered_map |
 | ------------- |-------------|:-------------:| -----:| -----------|----------------|---------------|---------------|
 | push_back     | push_back   | push_back     | push  |  push      | push           | insert        | N/A           |
