@@ -72,17 +72,18 @@ protected: 自己和派生类调用。
 [sort](#sort)
 
 ## STL
-| vector        | string      | deque         | stack | queue      | priority_queue | unordered_set | unordered_map |
-| ------------- |-------------|:-------------:| -----:| -----------|----------------|---------------|---------------|
-| push_back     | push_back   | push_back     | push  |  push      | push           | insert        | N/A           |
-| pop_back      | pop_back    | pop_back      | pop   |  pop       | pop            | erase         | erase         |
-| N/A           | N/A         | push_front    | N/A   |  N/A       | N/A            |               |               |
-| N/A           | N/A         | pop_front     | N/A   |  N/A       | N/A            |               |               |
-| front         | front       | front         | top   |  front     | top            |               |               |
-| back          | back        | back          | N/A   |  back      | N/A            |               |               |
-| size          | size        | size          | size  |  size      | size           |               |               |
-| empty         | empty       | empty         | empty |  empty     | empty          |               |               |
-| find -> end() | find -> npos|               |       |            |            的作用    |               |               |
+| vector         | string      | deque         | stack | queue      | priority_queue | unordered_set | unordered_map |
+| ---------------|-------------|:-------------:| -----:| -----------|----------------|---------------|---------------|
+| push_back      | push_back   | push_back     | push  |  push      | push           | insert        | N/A           |
+| pop_back       | pop_back    | pop_back      | pop   |  pop       | pop            | erase         | erase         |
+| N/A            | N/A         | push_front    | N/A   |  N/A       | N/A            |               |               |
+| N/A            | N/A         | pop_front     | N/A   |  N/A       | N/A            |               |               |
+| front          | front       | front         | top   |  front     | top            |               |               |
+| back           | back        | back          | N/A   |  back      | N/A            |               |               |
+| size           | size        | size          | size  |  size      | size           |               |               |
+| empty          | empty       | empty         | empty |  empty     | empty          |               |               |
+| find -> end()  | find -> npos|               |       |            |                |               |               |
+| random iterator| random      | random        | N/A   | N/A        | N/A            | bi-direction  | bi-direction  |
 
 ### misc
 #### lambda
