@@ -24,7 +24,9 @@ to avoid obj as parameter(copy constructor costs memory and time)
 1.对象直接引用 OBJ obj, obj.x  
 2.对象指针 OBJ* pObj; pObj->x  
 3.对象引用 OBJ & obj1 = obj; obj1.x  
-
+### 函数对象  
+   若一个类重载了运算符 “()”，则该类的对象就成为函数对象。  
+   
 ### 类的size
 类的size不包括类函数 and statics members
 
