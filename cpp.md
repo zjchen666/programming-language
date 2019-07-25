@@ -31,6 +31,7 @@ to avoid obj as parameter(copy constructor costs memory and time)
 3.对象引用 OBJ & obj1 = obj; obj1.x  
 ### 函数对象  
    若一个类重载了运算符 “()”，则该类的对象就成为函数对象。  
+   为什么要使用函数对象？ 当函数对象和函数指针作为函数模板入参的时候，函数对象可以带初始化参数，这样更灵活
    
 ### 类的size
 类的size不包括类函数 and statics members
