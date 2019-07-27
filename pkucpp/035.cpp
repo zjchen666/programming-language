@@ -36,7 +36,9 @@ string b[6] = {"American","Jack","To","Peking","abcdefghijklmnop","123456789"};
 int main()
 {
 	int n(2); string s("a123456");
-	
+	// 1. closer 是个类模板， 参数为 int 和 函数指针。
+	// 2. closer 构造函数有两个参数。
+	// 3. 因为是sort的入参， closer需提供（）的重载函数。
 	sort(a,a+10,Closer<int, int (*)(int ,int)> (n,Distance1));
 	for(int i = 0;i < 10; ++i)
 		cout << a[i] << "," ;
