@@ -25,6 +25,8 @@
    - 模板， 类模板 和函数模板。
    - STL - 标准模板库。
 -------------------------------------------------------------------------------------------
+
+
 ### 引用  
 主要用于替代指针作为函数参数的作用。避免传递类对象时拷贝构造函数的开销  
 to avoid obj as parameter(copy constructor costs memory and time) 
@@ -53,7 +55,7 @@ to avoid obj as parameter(copy constructor costs memory and time)
    3. 定义类变量时： A c1(c2) / A c1 = c2; c1 = c2不是。  
    
 ### 析构函数
-
+   __TODO__
 ### 对象的引用
 1.对象直接引用 OBJ obj, obj.x  
 2.对象指针 OBJ* pObj; pObj->x  
