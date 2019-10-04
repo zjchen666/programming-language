@@ -45,7 +45,26 @@ to avoid obj as parameter(copy constructor costs memory and time)
 ### 构造函数
    1. 定义一个对象时先调用基类的构造函数、然后调用派生类的构造函数；析构的时候恰好相反：先调用派生类的析构函数、然后调用基类的析构函数。
    2. 一个类可以有多个构造函数。参数个数和参数类型不同。
-   3. 构造函数的写法。__TODO__
+   3. 构造函数的写法。  
+   
+   a. 主要用于不带类成员变量的类初始化    
+```cpp
+        int a;  
+        int b;  
+        class_name(int x, int y, ...) {  
+            a = x;  
+            b = y;  
+            ...  
+     }   
+```
+        
+  b. 主要用于封闭类（带类成员变量的类）    
+```cpp  
+         class1 obj;  
+         int a;  
+         class_name(int x, int y): a(x), obj(y) {}  
+```  
+
 ### 拷贝构造函数   
    x::x( A & x)  
    用来init而不是赋值。  
