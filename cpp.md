@@ -287,8 +287,8 @@ int main () {
 ### priority_queue:
 #### define
 ```cpp
+   Max Heap: priority_queue<int> max_heap; __DEFAULT__  
    Min Heap: priority_queue<int, vector <int>, greater<int>> min_heap;    
-   Max Heap: priority_queue<int> max_heap;  
    Heap with self defined comparator: priority_queue<int, vector <int>, cmp> heap; //cmp 是第三个参数
 ```
 ### hashmap:
