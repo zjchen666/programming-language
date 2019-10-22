@@ -11,6 +11,8 @@ BX Rm and BLX Rm derive the target state from bit[0] of Rm:
 if bit[0] of Rm is 0, the processor changes to, or remains in, ARM state  
 if bit[0] of Rm is 1, the processor changes to, or remains in, Thumb state.  
 
+BL 的跳转是 __相对跳转__
+
 ## entry 和 #entry 的区别
 ```cpp
  #entry  - elf 文件编译时 assign的地址
