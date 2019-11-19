@@ -25,8 +25,10 @@
    - 模板， 类模板 和函数模板。
    - STL - 标准模板库。
 -------------------------------------------------------------------------------------------
+
+
 ### 引用  
-主要用于替代指针作为函数参数的作用。
+主要用于替代指针作为函数参数的作用。避免传递类对象时拷贝构造函数的开销  
 to avoid obj as parameter(copy constructor costs memory and time) 
 
 ### 函数重载
@@ -43,8 +45,39 @@ to avoid obj as parameter(copy constructor costs memory and time)
 ### 构造函数
    1. 定义一个对象时先调用基类的构造函数、然后调用派生类的构造函数；析构的时候恰好相反：先调用派生类的析构函数、然后调用基类的析构函数。
    2. 一个类可以有多个构造函数。参数个数和参数类型不同。
+   3. 构造函数的写法。  
+   
+   a. 主要用于不带类成员变量的类初始化    
+```cpp
+        int a;  
+        int b;  
+        class_name(int x, int y, ...) {  
+            a = x;  
+            b = y;  
+            ...  
+     }   
+```
+        
+  b. 主要用于封闭类（带类成员变量的类）    
+```cpp  
+         class1 obj;  
+         int a;  
+         class_name(int x, int y): a(x), obj(y) {}  
+```  
+
 ### 拷贝构造函数   
-   x::x( A & x)  
+```cpp
+    //使用const能以常量作为参数 
+    classname (const classname &obj) {
+    // 构造函数的主体
+    }
+    
+    不允许 以下的copy 构造函数
+    classname (classname obj) {
+    // 构造函数的主体
+    }
+```
+
    用来init而不是赋值。  
    三种用法：  
    1. 函数的形参init，用实参来init  
@@ -52,11 +85,14 @@ to avoid obj as parameter(copy constructor costs memory and time)
    3. 定义类变量时： A c1(c2) / A c1 = c2; c1 = c2不是。  
    
 ### 析构函数
-
+   __虚析构函数__ - 如果基类指针指向派生类对象并且使用基类指针来释放派生类时， 需要定义基类的析构函数为虚函数。
+   这是因为编译器不知道释放的是基类还是派生类。
+   
 ### 对象的引用
 1.对象直接引用 OBJ obj, obj.x  
 2.对象指针 OBJ* pObj; pObj->x  
 3.对象引用 OBJ & obj1 = obj; obj1.x  
+
 ### 函数对象  
    若一个类重载了运算符 “()”，则该类的对象就成为函数对象。  
    为什么要使用函数对象？ 当函数对象和函数指针作为函数模板入参的时候，函数对象可以带初始化参数，这样更灵活
@@ -109,18 +145,18 @@ protected: 自己和派生类调用。
 [sort](#sort)
 
 ## STL
-| vector         | string      | deque         | stack | queue      | priority_queue | unordered_set | unordered_map |
-| ---------------|-------------|:-------------:| -----:| -----------|----------------|---------------|---------------|
-| push_back      | push_back   | push_back     | push  |  push      | push           | insert        | N/A           |
-| pop_back       | pop_back    | pop_back      | pop   |  pop       | pop            | erase         | erase         |
-| N/A            | N/A         | push_front    | N/A   |  N/A       | N/A            |               |               |
-| N/A            | N/A         | pop_front     | N/A   |  N/A       | N/A            |               |               |
-| front          | front       | front         | top   |  front     | top            |               |               |
-| back           | back        | back          | N/A   |  back      | N/A            |               |               |
-| size           | size        | size          | size  |  size      | size           |               |               |
-| empty          | empty       | empty         | empty |  empty     | empty          |               |               |
-| find -> end()  | find -> npos|               |       |            |                |               |               |
-| random iterator| random      | random        | N/A   | N/A        | N/A            | bi-direction  | bi-direction  |
+| vector         | string      | deque         | stack | queue      | priority_queue | unordered_set | unordered_map | list     |   
+| ---------------|-------------|:-------------:| -----:| -----------|----------------|---------------|---------------|----------|
+| push_back      | push_back   | push_back     | push  |  push      | push           | insert        | N/A           |push_back |
+| pop_back       | pop_back    | pop_back      | pop   |  pop       | pop            | erase         | erase         |pop_front |
+| N/A            | N/A         | push_front    | N/A   |  N/A       | N/A            |               |               |push_front|
+| N/A            | N/A         | pop_front     | N/A   |  N/A       | N/A            |               |               |pop_front |
+| front          | front       | front         | top   |  front     | top            |               |               |          |
+| back           | back        | back          | N/A   |  back      | N/A            |               |               |          |
+| size           | size        | size          | size  |  size      | size           |               |               |          |
+| empty          | empty       | empty         | empty |  empty     | empty          |               |               |          |
+| find -> end()  | find -> npos|               |       |            |                |               |               |          |
+| random iterator| random      | random        | N/A   | N/A        | N/A            | bi-direction  | bi-direction  |          |
 
 ### misc
 #### lambda
@@ -262,8 +298,8 @@ int main () {
 ### priority_queue:
 #### define
 ```cpp
+   Max Heap: priority_queue<int> max_heap; __DEFAULT__  
    Min Heap: priority_queue<int, vector <int>, greater<int>> min_heap;    
-   Max Heap: priority_queue<int> max_heap;  
    Heap with self defined comparator: priority_queue<int, vector <int>, cmp> heap; //cmp 是第三个参数
 ```
 ### hashmap:
