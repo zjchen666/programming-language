@@ -66,7 +66,18 @@ to avoid obj as parameter(copy constructor costs memory and time)
 ```  
 
 ### 拷贝构造函数   
-   x::x( A & x)  
+```cpp
+    //使用const能以常量作为参数 
+    classname (const classname &obj) {
+    // 构造函数的主体
+    }
+    
+    不允许 以下的copy 构造函数
+    classname (classname obj) {
+    // 构造函数的主体
+    }
+```
+
    用来init而不是赋值。  
    三种用法：  
    1. 函数的形参init，用实参来init  
