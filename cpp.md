@@ -334,7 +334,8 @@ hash_set:
    string s, s.push_back(), s.size(), s.pop()
    isalnum(c), isdigit(c), isalpha(c), tolower(c)
    // find
-   s.find(a) != string::npos;
+   pos = s.find(a, index) != string::npos;
+   //string::npos == 0xFFFFFFFF
    str.substr(start_pos, len) - python str[start:end]
    // add
    s + "sdsdsa" // is supported by CPP， 字符串操作
