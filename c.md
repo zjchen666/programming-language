@@ -6,12 +6,12 @@ usage:
    3. 函数指针
 ```cpp
     // usage 1
-    typedef Pointer int *;
+    typedef int* Pointer;
     Pointer a, b;
     
     // usage 2
     typedef struct _a {
-       ///
+       // ;
     } A;
     A a, b;
     
