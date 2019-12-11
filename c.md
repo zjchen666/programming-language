@@ -1,4 +1,10 @@
 
+## Keywords: 
+- typedef
+- volatile
+- const
+- void
+
 ### typedef
 usage:
    1. 指针
@@ -27,6 +33,33 @@ volatile 告诉编译器i是随时可能发生变化的，每次使用它的时�
 3) 多线程应用中被几个任务共享的变量。   
 4）和编译器优化选项有关系  
 __从内存里重新load 从而避免被 CPU register Cache!!!__
+
+### void及void指针
+
+void即“无类型”，void *则为“无类型指针”，可以指向任何数据类型。
+
+void指针使用规范
+①void指针可以指向任意类型的数据，亦即可用任意数据类型的指针对void指针赋值。例如：
+int * pint;
+void *pvoid;
+pvoid = pint; /* 不过不能 pint= pvoid; */
+如果要将pvoid赋给其他类型指针，则需要强制类型转换如：pint= (int *)pvoid;
+
+在ANSIC标准中，不允许对void指针进行算术运算如pvoid++或pvoid+=1等，而在GNU中则允许，因为在缺省情况下，GNU认为void *与char *一样。sizeof(*pvoid )== sizeof( char).
+
+void指针只有地址没有类型 
+   - int *p -> void* p 把地址给void指针
+   - void *p -> int* p 需要提供类型信息，没有->出错
+
+void的作用
+①对函数返回的限定。  
+②对函数参数的限定。  
+当函数不需要返回值时，必须使用void限定。例如： void func(int, int);  
+当函数不允许接受参数时，必须使用void限定。例如： int func(void)。  
+
+由于void指针可以指向任意类型的数据，亦即可用任意数据类型的指针对void指针赋值，因此还可以用void指针来作为函数形参，这样函数就可以接受任意数据类型的指针作为参数。例如：
+void * memcpy( void *dest, const void *src, size_t len );
+
 
 ### 指针：
 -数组指针 - int (* p)[10]  
@@ -113,28 +146,15 @@ sizeof(test) : 20 bytes
 w/o attribute packeted: sizeof(test) - 24 bytes
 
 ```
-### void及void指针
 
-void即“无类型”，void *则为“无类型指针”，可以指向任何数据类型。
+### define
 
-void指针使用规范
-①void指针可以指向任意类型的数据，亦即可用任意数据类型的指针对void指针赋值。例如：
-int * pint;
-void *pvoid;
-pvoid = pint; /* 不过不能 pint= pvoid; */
-如果要将pvoid赋给其他类型指针，则需要强制类型转换如：pint= (int *)pvoid;
+#define A(x) T_##x   
+#define B（x) #@x   
+#define C（x) #x  
 
-在ANSIC标准中，不允许对void指针进行算术运算如pvoid++或pvoid+=1等，而在GNU中则允许，因为在缺省情况下，GNU认为void *与char *一样。sizeof(*pvoid )== sizeof( char).
+我们假设：x=1，则有：
 
-void指针只有地址没有类型 
-   - int *p -> void* p 把地址给void指针
-   - void *p -> int* p 需要提供类型信息，没有->出错
-
-void的作用
-①对函数返回的限定。  
-②对函数参数的限定。  
-当函数不需要返回值时，必须使用void限定。例如： void func(int, int);  
-当函数不允许接受参数时，必须使用void限定。例如： int func(void)。  
-
-由于void指针可以指向任意类型的数据，亦即可用任意数据类型的指针对void指针赋值，因此还可以用void指针来作为函数形参，这样函数就可以接受任意数据类型的指针作为参数。例如：
-void * memcpy( void *dest, const void *src, size_t len );
+A(1)------〉T_1
+B(1)------〉'1'
+C(1)------〉"1"
