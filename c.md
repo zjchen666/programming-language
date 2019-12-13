@@ -150,11 +150,11 @@ w/o attribute packeted: sizeof(test) - 24 bytes
 ### define
 
 #define A(x) T_##x   
-#define B（x) #@x   
-#define C（x) #x  
+#define B(x) #@x   
+#define C(x) #x  
 
-我们假设：x=1，则有：
+我们假设：x=1，则有：  
 
-A(1)------〉T_1
-B(1)------〉'1'
-C(1)------〉"1"
+A(1)------〉T_1   
+B(1)------〉'1'   
+C(1)------〉"1"  
