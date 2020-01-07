@@ -248,6 +248,35 @@ iterator is a pointer.
  ```
 ### auto:
 ### vector:
+vector的几种初始化及赋值方式：
+（1）不带参数的构造函数初始化
+```cpp
+//初始化一个size为0的vector
+vector<int> abc;
+```
+
+2）带参数的构造函数初始化
+```cpp
+//初始化size,但每个元素值为默认值
+vector<int> abc(10);    //初始化了10个默认值为0的元素
+//初始化size,并且设置初始值
+vector<int> cde(10，1);    //初始化了10个值为1的元素
+```
+
+（3）通过数组地址初始化
+```cpp
+int a[5] = {1,2,3,4,5};
+//通过数组a的地址初始化，注意地址是从0到5（左闭右开区间）
+vector<int> b(a, a+5);
+```
+
+（4）通过同类型的vector初始化
+```cpp
+vector<int> a(5,1);
+//通过a初始化
+vector<int> b(a);
+```
+
 ```cpp
    vector<int> nums
    iterator nums.begin(), nums.end()
