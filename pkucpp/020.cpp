@@ -115,7 +115,7 @@ class MyString
 	    }
         return str;
     }
-
+    // overwrite str + obj
     friend MyString operator + (const char* str, MyString & obj) {
 		int len = strlen(obj.s) + strlen(str);
         char* tmp = new char[len];
