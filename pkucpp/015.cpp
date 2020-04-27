@@ -9,6 +9,7 @@ class MyInt
 	MyInt( int n) { nVal = n ;}
 
     // 1. 重载- 运算符
+    // a 为什么return Myint -> 因为要多次-运算，objInt-2（return obj继续减，如果void编译出错）-1-3 
     MyInt & operator - (int n) {
         nVal -= n;
         if(n == 3) flag = 1;
