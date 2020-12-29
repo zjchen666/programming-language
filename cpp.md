@@ -29,15 +29,16 @@
    - 虚函数 - 允许被其子类重新定义的成员函数，子类重新定义父类虚函数的做法，可实现成员函数的动态覆盖（Override）。
    - 纯虚函数 - 是在基类中声明的虚函数，它在基类中没有定义，但要求任何派生类都要定义自己的实现方法。
    - 抽象类 - 包含纯虚函数的类称为抽象类。由于抽象类包含了没有定义的纯虚函数，所以不能进行实例化。
-   
 ## 范型编程
    - 模板， 类模板 和函数模板。
    - STL - 标准模板库。
 -------------------------------------------------------------------------------------------
 
 ### 引用  
+Why?  
+因为加入引用是为了支持operator overloading。这里有一个假设，如果没有引用，那么，用指针来operator overloading操作。A operator +(const A *a, const A *_a);那么使用的时候，&a + &b，这样看起来是不是很难受。而引入引用的概念，既可以满足overload operator，也不失重载value和pointer的灵活性。而且引用还带来一个指针无法替代的特性: 引用临时对象。因为引用必须在定义的时候就赋值，以后无法更改。
 主要用于替代指针作为函数参数的作用。避免传递类对象时拷贝构造函数的开销  
-to avoid obj as parameter(copy constructor costs memory and time) 
+to avoid obj as parameter(copy constructor costs memory and time)   
 TODO: __编译器如何使用引用？__
 
 ### 函数重载
