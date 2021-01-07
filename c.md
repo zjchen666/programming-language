@@ -162,3 +162,21 @@ w/o attribute packeted: sizeof(test) - 24 bytes
 A(1)------〉T_1   
 B(1)------〉'1'   
 C(1)------〉"1"  
+
+### prototype
+```
+in file 1:
+uint64_t fun(void) {
+     uint64_t val = 0x1234567887654321;
+     return val;
+}
+
+in file 2;
+/* 
+ * We need to declare fun() properly with a prototype
+ * If not, compiler will use the implicit return type of int that explains truncation (you have 32-bit ints).
+ */
+uint64_t val = fun();
+printf("%x%x\n", (val >> 32) & 0xFFFFFFFF, val & 0xFFFFFFFF);
+
+```
