@@ -151,18 +151,31 @@ w/o attribute packeted: sizeof(test) - 24 bytes
 
 ```
 
-### define
+### 宏转义字符 
 
-#define A(x) T_##x   
+#define A(x) T_##x   /* 符号 */  
 #define B(x) #@x   
-#define C(x) #x  
+#define C(x) #x  /* 字符串 */  
 
 我们假设：x=1，则有：  
 
 A(1)------〉T_1   
 B(1)------〉'1'   
 C(1)------〉"1"  
+···
+#include <stdio.h>
 
+#define str(x)  #x
+#define con(a, b) a##b
+
+
+void main(void) {
+    int hello_world = 1;
+    printf("%s\n", str(hello));
+    printf("%d\n", con(hello_, world));
+}
+
+···
 ### prototype
 ```
 in file 1:
