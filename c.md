@@ -80,6 +80,7 @@ int a[2][3] = {1,2,3,4,5,6,7,8,9} a type - int (int*)[2]
 const int a; - a为 constant int  
 int const a; - 同上   
 const int *a; - 指针的值为 constant   
+int const *a; - 指针的值为 constant   
 int * const a; - 指针 constant  
 int const * a const; - 指针和值都为constant  
 int fn(int a, int b) const - cpp 一个类中任何不会修改数据成员的函数都应该声明为const类型。
