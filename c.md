@@ -194,3 +194,26 @@ uint64_t val = fun();
 printf("%x%x\n", (val >> 32) & 0xFFFFFFFF, val & 0xFFFFFFFF);
 
 ```
+### 特殊宏定义
+__VA_ARGS__:
+__VA_ARGS__ 是C语言中的一个特殊宏，用于表示宏定义中的可变参数。它通常与可变参数宏一起使用，用于处理传递给宏的可变数量的参数。
+
+下面是一个示例，以说明 __VA_ARGS__ 的用法：
+
+c
+Copy code
+#include <stdio.h>
+
+#define LOG(format, ...) printf(format, __VA_ARGS__)
+
+int main() {
+    int num = 42;
+    LOG("数值为：%d\n", num);
+    LOG("你好，%s！\n", "世界");
+    return 0;
+}
+在上述示例中，我们定义了一个名为 LOG 的宏，该宏以格式字符串作为第一个参数，后面跟随使用 __VA_ARGS__ 指定的可变参数。LOG 宏使用 printf 来打印格式化输出。
+
+在使用 LOG 宏时，格式字符串和相应的参数被传递方式与使用 printf 相同。在宏展开中，__VA_ARGS__ 部分将被调用点提供的参数替换。
+
+请注意，__VA_ARGS__ 必须在可变参数宏内使用，可变参数宏使用 ... 参数列表语法进行定义。__VA_ARGS__ 宏允许宏接受可变数量的参数，并将它们传递到宏展开中的适当位置
